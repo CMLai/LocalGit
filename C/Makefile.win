@@ -1,0 +1,36 @@
+# Project: FDTD_2D
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = main.o FDTD3DSolver.o FDTD2DSolver.o $(RES)
+LINKOBJ  = main.o FDTD3DSolver.o FDTD2DSolver.o $(RES)
+LIBS =  -L"D:/Tools/Dev-Cpp/lib"  
+INCS =  -I"D:/Tools/Dev-Cpp/include" 
+CXXINCS =  -I"D:/Tools/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"D:/Tools/Dev-Cpp/include/c++/3.4.2/backward"  -I"D:/Tools/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"D:/Tools/Dev-Cpp/include/c++/3.4.2"  -I"D:/Tools/Dev-Cpp/include" 
+BIN  = FDTD_2D.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before FDTD_2D.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o "FDTD_2D.exe" $(LIBS)
+
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
+
+FDTD3DSolver.o: FDTD3DSolver.c
+	$(CC) -c FDTD3DSolver.c -o FDTD3DSolver.o $(CFLAGS)
+
+FDTD2DSolver.o: FDTD2DSolver.c
+	$(CC) -c FDTD2DSolver.c -o FDTD2DSolver.o $(CFLAGS)
